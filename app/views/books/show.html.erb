@@ -11,6 +11,7 @@
   <dd><%= @book.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:author) %>:</strong></dt>
   <dd><%= @book.author %></dd>
+  <dd><%= image_tag @book.images.first.author_img_url, class: "author_image" %></dd>
   <dt><strong><%= model_class.human_attribute_name(:notes) %>:</strong></dt>
   <dd><%= raw @book.notes %></dd>
   <dt><strong><%= model_class.human_attribute_name(:rating) %>:</strong></dt>
@@ -18,6 +19,7 @@
   <dt><strong>Category:</strong></dt>
   <dd><%= @book.category.name %></dd>
 </dl>
+<%= image_tag("author_images/john_medina.jpg") %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
