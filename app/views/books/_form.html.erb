@@ -1,6 +1,6 @@
 <%= error_messages_for(@book) %>
 
-<%= form_for @book, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @book, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
@@ -32,6 +32,10 @@
       <%= f.select :category_id, options_for_select(@categories.map{|category|[category.name, category.id]}) %>
     </div>
   </div>
+<p>
+  <%= f.label :image, "Attach an Image" %><br />
+  <%= f.file_field :image %>
+</p>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

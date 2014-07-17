@@ -8,4 +8,7 @@ class Book < ActiveRecord::Base
     	minimum: 3
     }
     validates :rating, numericality: {less_than_or_equal_to: 5}
+
+    has_attached_file :image
+	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 end
