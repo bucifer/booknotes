@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem "twitter-bootstrap-rails"
 gem 'paperclip'
 gem 'kaminari'
 # Use SCSS for stylesheets

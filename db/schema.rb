@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716135433) do
+ActiveRecord::Schema.define(version: 20140716234530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140716135433) do
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "category_id"
+    t.integer  "category_id", default: 1, null: false
   end
 
   create_table "categories", force: true do |t|
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20140716135433) do
 
   create_table "images", force: true do |t|
     t.string   "cover_img_url"
-    t.string   "author_image_url"
+    t.string   "author_img_url"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "book_id"
