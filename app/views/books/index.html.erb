@@ -23,7 +23,7 @@
         <td><%= book.id %></td>
         <td><%= book.title %></td>
         <td><%= book.author %></td>
-        <td><%= raw book.notes.truncate(30) %></td>
+        <td><%= truncate(strip_tags(book.notes), :length=>50) %></td>
         <td><%= book.rating %></td>
         <td><%= book.category_id %></td>
         <td><%= book.category.name %></td>
