@@ -13,41 +13,50 @@
       <%= f.text_field :author, :class => 'text_field' %>
     </div>
   </div>
+    <div class="control-group">
+    <%= f.label :rating, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select(:rating, 1..5) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "Category", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :category_id, options_for_select(@categories.map{|category|[category.name, category.id]}, @book.category_id)  %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :image, "Attach Cover Image using Paperclip", :class => 'control-label' %>
+    <div class="controls">
+     <%= f.file_field :image %>
+    </div>
+  </div>
+  <!-- Nested Form for @book.images -->
+  <%= f.fields_for :images do |ff| %>
+      <div class="control-group">
+    <%= ff.label "Enter Author Image Url", :class => 'control-label' %>
+        <div class="controls">
+    <%= ff.text_field :author_img_url %>
+        Delete: <%= ff.check_box :_destroy %>
+
+  </div>
+ </div>
+  <% end %>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                books_path, :class => 'btn' %>
+  </div>
+
+<hr>
+
   <div class="control-group">
     <%= f.label :notes, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :notes, :class => 'ckeditor' %>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label :rating, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.select(:rating, 1..5) %>
-    </div>
-  </div>
-
-  </div>
-  <div class="control-group">
-    <%= f.label "Category", :class => 'control-label' %>
-    <div class="controls">
-      <%= f.select :category_id, options_for_select(@categories.map{|category|[category.name, category.id]}) %>
-    </div>
-  </div>
-<p>
-  <%= f.label :image, "Attach an Image" %><br />
-  <%= f.file_field :image %>
-</p>
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                books_path, :class => 'btn' %>
-  </div>
-  <%= f.fields_for :images do |ff| %>
-    <%= ff.label "Author Image Url" %>
-    Delete: <%= ff.check_box :_destroy %>
-    <%= ff.text_field :author_img_url %>
-  <% end %>
 
 <% end %>
 
-<hr>

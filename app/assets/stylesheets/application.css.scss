@@ -14,35 +14,3 @@
  *= require_self
  */
 
-.navbar-inner {
-	background-image: image-url("wood_background.jpg");
-
-}
-
-.navbar .nav-collapse ul.nav li a {
-	color: white;
-	text-shadow: none;
-	font-family: inherit;
-	&:hover {
-		background-color: rgba(255,100,0,0.2);
-		color: orange;
-	}
-}
-
-.navbar .nav-collapse .nav li.active a {
-	background-color: rgba(255,100,0,0.2);
-	color: white;
-	text-shadow: none;
-	font-weight: bold;
-}
-
-.navbar a.brand {
-	color: gold;
-	text-shadow: none;
- 	font-family: cursive;
- 	font-size: 2em;
-	&:hover {
-		color: orange;	
-		background-color: rgba(255,100,0,0.2);
-	}
-}

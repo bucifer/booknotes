@@ -2,6 +2,12 @@
 <div class="page-header">
   <h1><%=t '.title', :default => "#{@book.title}" %></h1>
 </div>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              books_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_book_path(@book), :class => 'btn' %>
+</div>
 
 <dl class="dl-horizontal">
   <dt><strong>Cover</strong></dt>
@@ -17,14 +23,16 @@
   <% if @book.images.exists? %>
     <dd><%= image_tag @book.images.first.author_img_url, class: "author_image" %></dd>
   <% end %>
-  <dt><strong><%= model_class.human_attribute_name(:notes) %>:</strong></dt>
-  <dd><%= raw @book.notes %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:rating) %>:</strong></dt>
-  <dd><%= @book.rating %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:rating) %>:</strong></dt>
+  <dd><%= @book.rating %> out of 5</dd>
   <dt><strong>Category:</strong></dt>
   <dd><%= @book.category.name %></dd>
+  <dt><strong>Terry's Notes:</strong></dt>
+  <dd>
+  ******************************************************************************************************
+  <%= raw @book.notes %>
+  </dd>
 </dl>
-<%#= image_tag("author_images/john_medina.jpg") %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

@@ -17,6 +17,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @categories = Category.order('id ASC')
     @book.images.build
+    @book.images.first.author_img_url = 'author_images/'
   end
 
   # GET /books/1/edit

@@ -14,8 +14,7 @@
   <div class="control-group">
     <%= f.label :book_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :book_id, :class => 'text_field' %>
-    </div>
+      <%= f.select :book_id, options_for_select(@books.map{|book| [book.title, book.id]}), :include_blank => true %>    </div>
   </div>
 
   <div class="form-actions">
@@ -24,3 +23,5 @@
                 images_path, :class => 'btn' %>
   </div>
 <% end %>
+<hr>
+<p>Examples: Author img url: author_images/john_medina.jpg (no quotes)</p>

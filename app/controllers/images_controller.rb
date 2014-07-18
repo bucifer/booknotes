@@ -15,16 +15,20 @@ class ImagesController < ApplicationController
   # GET /images/new
   def new
     @image = Image.new
+    @books = Book.order('id ASC')
+
   end
 
   # GET /images/1/edit
   def edit
+    @books = Book.order('id ASC')
   end
 
   # POST /images
   # POST /images.json
   def create
     @image = Image.new(image_params)
+    @books = Book.order('id ASC')
 
     respond_to do |format|
       if @image.save
@@ -40,6 +44,7 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1
   # PATCH/PUT /images/1.json
   def update
+    @books = Book.order('id ASC')
     respond_to do |format|
       if @image.update(image_params)
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }

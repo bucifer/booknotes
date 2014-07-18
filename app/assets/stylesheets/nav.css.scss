@@ -1,0 +1,33 @@
+.navbar-inner {
+	background-image: image-url("wood_background.jpg");
+
+}
+
+.navbar .nav-collapse ul.nav li a {
+	color: white;
+	font-size: 1.5em;
+	text-shadow: none;
+	font-family: inherit;
+	&:hover {
+		background-color: rgba(255,100,0,0.2);
+		color: orange;
+	}
+}
+
+.navbar .nav-collapse .nav li.active a {
+	background-color: rgba(255,100,0,0.2);
+	color: white;
+	text-shadow: none;
+	font-weight: bold;
+}
+
+.navbar a.brand {
+	color: orange;
+	text-shadow: none;
+ 	font-family: cursive;
+ 	font-size: 2.5em;
+	&:hover {
+		color: yellow;	
+		background-color: rgba(100,150,150,0.25);
+	}
+}
