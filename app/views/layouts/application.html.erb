@@ -8,7 +8,19 @@
 </head>
 <body>
 
+<%= nav_bar :brand => "Terry's Book Summaries", :responsive => true  do %>
+    <%= menu_group do %>
+        <%= menu_item "Books", books_path %>
+        <%= menu_item "Categories", categories_path %>
+        <%= menu_item "Images", images_path %>
+    <% end %>
+<% end %>
+
 <%= yield %>
+
+<hr>
+<%= params.inspect %>
+<%= debug(params) %>
 
 </body>
 </html>

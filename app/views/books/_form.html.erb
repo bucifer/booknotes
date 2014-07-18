@@ -1,6 +1,6 @@
 <%= error_messages_for(@book) %>
 
-<%= form_for @book, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
+<%= form_for setup_book(@book), :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
@@ -41,8 +41,12 @@
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 books_path, :class => 'btn' %>
   </div>
+  <%= f.fields_for :images do |ff| %>
+    <%= ff.label "Author Image Url" %>
+    Delete: <%= ff.check_box :_destroy %>
+    <%= ff.text_field :author_img_url %>
+  <% end %>
+
 <% end %>
 
 <hr>
-<%= params.inspect %>
-<%= debug(params) %>

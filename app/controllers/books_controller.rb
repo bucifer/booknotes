@@ -16,6 +16,7 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
     @categories = Category.order('id ASC')
+    @book.images.build
   end
 
   # GET /books/1/edit
@@ -72,7 +73,7 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :notes, :rating, :category_id, :image)
+      params.require(:book).permit(:title, :author, :notes, :rating, :category_id, :image, :images_attributes => [:id, :cover_img_url, :author_img_url])
     end
 
 end
