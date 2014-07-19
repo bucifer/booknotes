@@ -10,11 +10,11 @@
 
 <%= error_messages_for(@book) %>
 
-<%= form_for setup_book(@book), :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
+<%= form_for @book, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :title, :class => 'text_field' %>
+      <%= f.text_field :title, :autofocus => true, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">

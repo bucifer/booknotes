@@ -9,15 +9,38 @@
 </head>
 <body>
 
-<%= nav_bar :brand => "Terry's Book Notes", :responsive => true  do %>
-    <%= menu_group do %>
-        <%= menu_item "Books", books_path %>
-        <%= menu_item "Categories", categories_path %>
-        <%= menu_item "Images", images_path %>
-    <% end %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+    <%= link_to "Terry's Book Notes", root_path, :class => "brand" %>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+            <li><%= link_to "Books", books_path %></li>
+            <li><%= link_to "Categories", categories_path %></li>
+            <li><%= link_to "Images", images_path %></li>
+        </ul>
+                    <%= menu_group :pull => :right do %>
+              <% if current_user %>
+                <li><%= link_to "See Admins", users_path %></li>
+                <li><%= link_to "Logout", :logout, method: :post %></li>
+              <% else %>
+<!--                 <li><%= link_to "Register", new_user_path %></li> 
+ -->                <li><%= link_to "Admin Login", :login %></li>
+              <% end %>
+            <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% flash.each do |flash_type, flash_message| %>
+  <p class="<%= flash_class_returner(flash_type) %>">
+    <%= flash_message %> 
+  </p>
 <% end %>
 
-<%= bootstrap_flash %>
+
+
 
 <%= yield %>
 
