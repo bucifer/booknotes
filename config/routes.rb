@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  root "books#index"
+  root "user_interface#index"
+  resources :users
+  resources :user_sessions
+  get 'login' => 'user_sessions#new', :as => :login
+  post 'logout' => 'user_sessions#destroy', :as => :logout
+
   resources :categories do
     resources :books
   end
-  resources :books
+  resources :books do
+    resources :images
+  end
   resources :images
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,3 +1,13 @@
+  <script type="text/javascript">$(document).ready(function() {
+    if ($('textarea').length > 0) {
+        var data = $('textarea');
+        $.each(data, function(i) {
+            CKEDITOR.replace(data[i].id);
+        });
+    }
+});
+  </script>
+
 <%= error_messages_for(@book) %>
 
 <%= form_for setup_book(@book), :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
