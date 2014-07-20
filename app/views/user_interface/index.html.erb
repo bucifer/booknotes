@@ -1,12 +1,23 @@
 <div id="wrapper">
-<h1>User Interface Index page</h1>
+
+<blockquote>
+<p><%= @quote.body %></p>
+<footer><cite title="Source Title">- <%= @quote.author %></cite></footer>
+</blockquote>
+
   <ul>
   <% @books.each do |book| %>
-  <li>
-    <%=image_tag book.image.url, class: "fixed_size" %>
+  <li class="bookSnippet">
+    <%= image_tag book.image.url, class: "fixed_size" %>
     <%= image_tag book.images.first.author_img_url, class: "fixed_size" %>
     <%= link_to book.title, book_path(book), class: "bookTitle" %>
   </li>
+  <div class="notesContent">
+    <% (book.rating).times do %>
+      <%= image_tag "star.png" %>
+    <% end %>
+    <p><%= book.short_summary %></p>
+  </div>
   <% end %>
   </ul>
 </div>

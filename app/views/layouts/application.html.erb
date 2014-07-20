@@ -15,9 +15,16 @@
     <%= link_to "Terry's Book Notes", root_path, :class => "brand" %>
       <div class="nav-collapse collapse">
         <ul class="nav">
+            <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "Books", books_path %></li>
-            <li><%= link_to "Categories", categories_path %></li>
+            <% if current_user %>
+            <li><%= link_to "Categories", category_admin_index_path %></li>
+            <% else %>
+            <li><%= link_to "Categories", category_index_path %></li>
+            <% end %>
+            <% if current_user %>
             <li><%= link_to "Images", images_path %></li>
+              <% end %>
         </ul>
                     <%= menu_group :pull => :right do %>
               <% if current_user %>

@@ -1,5 +1,5 @@
 <%- model_class = Book -%>
-<div class="page-header">
+<div>
   <h1><%=t '.title', :default => "#{@book.title}" %></h1>
 </div>
 <div class="form-actions">
@@ -24,14 +24,30 @@
     <dd><%= image_tag @book.images.first.author_img_url, class: "author_image" %></dd>
   <% end %>
     <dt><strong><%= model_class.human_attribute_name(:rating) %>:</strong></dt>
-  <dd><%= @book.rating %> out of 5</dd>
+  <dd>
+  <% (@book.rating).times do %>
+    <%= image_tag "star.png" %>
+  <% end %>
+  <br>
+  <%= @book.rating %> out of 5
+  </dd>
   <dt><strong>Category:</strong></dt>
   <dd><%= @book.category.name %></dd>
+  <dt><strong>Short Summary:</strong></dt>
+  <dd>
+  <% if !@book.short_summary.blank? %>
+  <pre><%= @book.short_summary %></pre>
+  <% else %>
+  <p>  N/A </p> 
+ <% end %>
+  </dd>
+  <% if current_user %>
   <dt><strong>Author Image Path</strong></dt>
   <dd><%= @book.images.first.author_img_url %></dd>
+  <% end %>
   <dt><strong>Terry's Notes:</strong></dt>
+  <dd>  ******************************************************************************************************</dd>
   <dd>
-  ******************************************************************************************************
   <%= raw @book.notes %>
   </dd>
 </dl>

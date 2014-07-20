@@ -1,9 +1,7 @@
   <script type="text/javascript">$(document).ready(function() {
     if ($('textarea').length > 0) {
         var data = $('textarea');
-        $.each(data, function(i) {
-            CKEDITOR.replace(data[i].id);
-        });
+        CKEDITOR.replace($('textarea')[1].id);
     }
 });
   </script>
@@ -11,12 +9,20 @@
 <%= error_messages_for(@book) %>
 
 <%= form_for @book, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
+ 
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                books_path, :class => 'btn' %>
+  </div>
+
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :title, :autofocus => true, :class => 'text_field' %>
     </div>
   </div>
+
   <div class="control-group">
     <%= f.label :author, :class => 'control-label' %>
     <div class="controls">
@@ -48,15 +54,15 @@
         <div class="controls">
     <%= ff.text_field :author_img_url %>
         Delete: <%= ff.check_box :_destroy %>
-
   </div>
  </div>
   <% end %>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                books_path, :class => 'btn' %>
+  <div class="control-group">
+    <%= f.label :short_summary, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :short_summary, :class => "short_summary" %>
+    </div>
   </div>
 
 <hr>
@@ -66,6 +72,12 @@
     <div class="controls">
       <%= f.text_area :notes, :class => 'ckeditor' %>
     </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                books_path, :class => 'btn' %>
   </div>
 
 <% end %>
