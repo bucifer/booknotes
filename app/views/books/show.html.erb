@@ -17,9 +17,8 @@
     <dd><p>N/A</p></dd>
   <% end %>
   <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @book.title %><%= link_to "http://www.google.com/search?q=#{@book.title} #{@book.author}", target: "blank" do %>
-        <button class="btn btn-warning">Google it</button>
-      <% end %></dd>
+  <dd><%= @book.title %><br>
+  <%= link_to "http://www.google.com/search?q=#{@book.title} #{@book.author}", target: "blank" do %><button class="btn btn-warning">Google it</button><% end %></dd>
   <dt><strong><%= model_class.human_attribute_name(:author) %>:</strong></dt>
   <dd><%= link_to @book.author, "http://www.google.com/search?q=#{@book.author}", target: "blank" %></dd>
   <% if @book.images.present? %>

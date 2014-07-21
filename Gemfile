@@ -8,9 +8,10 @@ gem 'pg'
 gem "twitter-bootstrap-rails"
 gem 'paperclip'
 gem 'rmagick'
-
 gem 'sorcery'
 gem 'kaminari'
+gem 'bootstrap-kaminari-views'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
