@@ -13,4 +13,13 @@ class Book < ActiveRecord::Base
 
     has_attached_file :image, :styles => { :small_size => "150x150>", :cover_size => "350x350>" }
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+
+  def title
+    read_attribute(:title).titleize.uncapitalize_puncs
+  end
+
+  def author
+     read_attribute(:author).titleize
+  end
+
 end

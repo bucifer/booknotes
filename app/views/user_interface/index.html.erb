@@ -7,11 +7,15 @@
 
   <ul>
   <% @books.each do |book| %>
-  <li class="bookSnippet">
+  <div class="bookSnippet">
     <%= image_tag book.image.url, class: "fixed_size" %>
     <%= image_tag book.images.first.author_img_url, class: "fixed_size" %>
-    <%= link_to book.title, book_path(book), class: "bookTitle" %>
-  </li>
+      <div class="titleAuthor">
+      <%= link_to book.title.uncapitalize_puncs, book_path(book), class: "bookTitle" %>
+      <p>By <%= book.author %></p>
+    </div>
+ </div>
+
   <div class="notesContent">
     <% (book.rating).times do %>
       <%= image_tag "star.png" %>

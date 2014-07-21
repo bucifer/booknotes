@@ -20,7 +20,7 @@
   <dd><%= @book.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:author) %>:</strong></dt>
   <dd><%= @book.author %></dd>
-  <% if @book.images.exists? %>
+  <% if @book.images.present? %>
     <dd><%= image_tag @book.images.first.author_img_url, class: "author_image" %></dd>
   <% end %>
     <dt><strong><%= model_class.human_attribute_name(:rating) %>:</strong></dt>
@@ -35,7 +35,7 @@
   <dd><%= @book.category.name %></dd>
   <dt><strong>Short Summary:</strong></dt>
   <dd>
-  <% if !@book.short_summary.blank? %>
+  <% if @book.short_summary.present? %>
   <pre><%= @book.short_summary %></pre>
   <% else %>
   <p>  N/A </p> 
@@ -48,8 +48,13 @@
   <dt><strong>Terry's Notes:</strong></dt>
   <dd>  ******************************************************************************************************</dd>
   <dd>
-  <%= raw @book.notes %>
+  <% if @book.notes.present? %>
+    <%= raw @book.notes %>
+  <% else %>
+    N/A
+  <% end %>
   </dd>
+
 </dl>
 
 <div class="form-actions">

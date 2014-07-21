@@ -7,11 +7,6 @@
 
 #wrapper {
 	display: none;
-	li {
-	list-style: none;
-	color: green;
-	margin: 5px;
-	}
 	blockquote {
 		background-color: gold;
 		border-radius: 1em;
@@ -39,11 +34,21 @@ a.bookTitle {
 	}
 }
 
-li.bookSnippet {
+.bookSnippet {
+	display: block;
 	&:hover {
 		background-color: rgba(10,10,10,0.1);
 	}
+	margin: 5px;
 }
+
+.titleAuthor {
+	display: inline-block;
+	p {
+		font-family: sans-serif;
+	}
+}
+
 
 div.notesContent {
 	display: none;
