@@ -6,7 +6,7 @@ class Book < ActiveRecord::Base
     validates :category, :presence => true
 
     validates :title, :author, presence: true, length: {
-    	maximum: 100, 
+    	maximum: 300, 
     	minimum: 3
     }
     validates :rating, numericality: {less_than_or_equal_to: 5}
@@ -16,10 +16,6 @@ class Book < ActiveRecord::Base
 
   def title
     read_attribute(:title).titleize.uncapitalize_puncs
-  end
-
-  def author
-     read_attribute(:author).titleize
   end
 
 end

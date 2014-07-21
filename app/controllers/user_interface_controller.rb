@@ -1,7 +1,7 @@
 class UserInterfaceController < ApplicationController
 
 	def index 
-		@books = Book.all.reorder('rating DESC').order('id ASC')
+		@books = Book.all.reorder('rating DESC').order('updated_at DESC')
 		@categories = Category.all
 				a = Quote.new("\"A reader lives a thousand lives before he dies. The man who never reads lives only one.\"", "George R.R. Martin")
 				b = Quote.new("\"The more that you read, the more things you will know. The more that you learn, the more places you'll go.\"", "Dr.Seuss")

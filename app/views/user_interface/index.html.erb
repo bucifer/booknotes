@@ -8,11 +8,20 @@
   <ul>
   <% @books.each do |book| %>
   <div class="bookSnippet">
+   <%= link_to book_path(book) do %>
     <%= image_tag book.image.url, class: "fixed_size" %>
     <%= image_tag book.images.first.author_img_url, class: "fixed_size" %>
+   <% end %>
       <div class="titleAuthor">
-      <%= link_to book.title.uncapitalize_puncs, book_path(book), class: "bookTitle" %>
+      <%= link_to book.title.uncapitalize_puncs.truncate(95), book_path(book), class: "bookTitle" %>
       <p>By <%= book.author %></p>
+      <%= link_to "http://www.google.com/search?q=#{book.title} #{book.author}", target: "blank" do %>
+        <button class="btn btn-warning">Google it</button>
+      <% end %>
+      <% if current_user %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_book_path(book), :class => 'btn btn-success' %>
+      <% end %>
     </div>
  </div>
 

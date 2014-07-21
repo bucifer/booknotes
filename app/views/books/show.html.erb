@@ -3,8 +3,8 @@
   <h1><%=t '.title', :default => "#{@book.title}" %></h1>
 </div>
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              books_path, :class => 'btn btn-primary'  %>
+  <%= link_to "Back Home", root_path, :class => 'btn btn-primary'  %>
+  <%= link_to "Books Index", books_path, :class => 'btn btn-primary'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_book_path(@book), :class => 'btn btn-success' %>
 </div>
@@ -17,11 +17,13 @@
     <dd><p>N/A</p></dd>
   <% end %>
   <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @book.title %></dd>
+  <dd><%= @book.title %><%= link_to "http://www.google.com/search?q=#{@book.title} #{@book.author}", target: "blank" do %>
+        <button class="btn btn-warning">Google it</button>
+      <% end %></dd>
   <dt><strong><%= model_class.human_attribute_name(:author) %>:</strong></dt>
-  <dd><%= @book.author %></dd>
+  <dd><%= link_to @book.author, "http://www.google.com/search?q=#{@book.author}", target: "blank" %></dd>
   <% if @book.images.present? %>
-    <dd><%= image_tag @book.images.first.author_img_url, class: "author_image" %></dd>
+    <dd><%= link_to (image_tag @book.images.first.author_img_url, class: "author_image"), "http://www.google.com/search?q=#{@book.author}", target: "blank"  %></dd>
   <% end %>
     <dt><strong><%= model_class.human_attribute_name(:rating) %>:</strong></dt>
   <dd>
@@ -58,13 +60,8 @@
 </dl>
 
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              books_path, :class => 'btn btn-primary'  %>
+  <%= link_to "Back Home", root_path, :class => 'btn btn-primary'  %>
+  <%= link_to "Books Index", books_path, :class => 'btn btn-primary'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_book_path(@book), :class => 'btn btn-success' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              book_path(@book),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
 </div>

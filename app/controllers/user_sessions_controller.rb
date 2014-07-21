@@ -9,7 +9,7 @@ skip_before_filter :require_login, except: [:destroy]
   	if @user = login(params[:email], params[:password])
   		redirect_back_or_to(users_path, notice: 'Login successful')
   	else
-  		flash.now[:alert] = "Login failed"
+  		flash.now[:error] = "Login failed"
   		render action: 'new'
     end
   end
