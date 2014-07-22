@@ -2,13 +2,15 @@ Rails.application.routes.draw do
   root "user_interface#index"
   
   #user interface routes
-  get 'category_index' => 'user_interface#category_index'
+  get 'category_index' => 'user_interface#category_index', :as => :category_index
   get 'categories' => 'categories#index', :as => :category_admin_index
   #login sorcery routes
   resources :users
   resources :user_sessions
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
+  #static pages routes
+  get 'about' => 'static#about', :as => :about
 
   #regular model routes
   resources :categories do

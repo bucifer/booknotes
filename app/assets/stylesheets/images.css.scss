@@ -7,8 +7,14 @@ img.author_image {
 	height: auto;
 }
 
+img.blank_avatar {
+	max-width: 75px;
+	height: auto;
+}
+
 img.fixed_size {
 	max-width: 100px;
 	height: 150px;
 	border: solid 1px black;
 }
+

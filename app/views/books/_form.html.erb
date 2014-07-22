@@ -47,15 +47,16 @@
      <%= f.file_field :image %>
     </div>
   </div>
+
   <!-- Nested Form for @book.images -->
   <%= f.fields_for :images do |ff| %>
-      <div class="control-group">
-    <%= ff.label "Enter Author Image Url", :class => 'control-label' %>
+   <div class="control-group">
+     <%= ff.label "Enter Author Image Url", :class => 'control-label' %>
         <div class="controls">
-    <%= ff.text_field :author_img_url %>
-        Delete: <%= ff.check_box :_destroy %>
-  </div>
- </div>
+         <%= ff.text_field :author_img_url %>
+         Delete: <%= ff.check_box '_destroy' %>
+        </div>
+    </div>
   <% end %>
 
   <div class="control-group">
@@ -81,4 +82,3 @@
   </div>
 
 <% end %>
-

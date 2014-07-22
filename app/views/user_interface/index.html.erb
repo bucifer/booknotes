@@ -3,20 +3,25 @@
   <p><%= @quote.body %></p>
   <footer><cite title="Source Title">- <%= @quote.author %></cite></footer>
 </blockquote>
-<%= paginate @books, :theme => 'twitter-bootstrap' %>
-
+<%= page_entries_info @books %>
+<%= paginate @books, :theme => 'twitter-bootstrap', :window => 5 %>
+<% if current_user %>
+  <%= link_to "New Book", new_book_path, :class => 'btn btn-success' %>
+<% end %>
   <ul>
   <% @books.each do |book| %>
   <div class="bookSnippet">
    <%= link_to book_path(book) do %>
     <%= image_tag book.image.url, class: "fixed_size" %>
+    <% if !test_blank_author_img_url(book) %>
     <%= image_tag book.images.first.author_img_url, class: "fixed_size" %>
+    <% end %>
    <% end %>
       <div class="titleAuthor">
       <%= link_to book.title.uncapitalize_puncs.truncate(95), book_path(book), class: "bookTitle" %>
       <p>by <%= book.author %></p>
       <%= link_to book_path(book) do %>
-        <button class='btn btn-primary'> Show </button>
+        <button class='btn btn-primary'>Show Notes</button>
       <% end %>
       <%= link_to "http://www.google.com/search?q=#{book.title} #{book.author}", target: "blank" do %>
         <button class="btn btn-warning">Google it</button>

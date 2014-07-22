@@ -5,8 +5,11 @@
 <div class="form-actions">
   <%= link_to "Back Home", root_path, :class => 'btn btn-primary'  %>
   <%= link_to "Books Index", books_path, :class => 'btn btn-primary'  %>
+  <% if current_user %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_book_path(@book), :class => 'btn btn-success' %>
+  <% end %>
+  <a href="<%=params[:id] %>.json" class="btn btn-info">See JSON</a>
 </div>
 
 <dl class="dl-horizontal">
@@ -21,9 +24,16 @@
   <%= link_to "http://www.google.com/search?q=#{@book.title} #{@book.author}", target: "blank" do %><button class="btn btn-warning">Google it</button><% end %></dd>
   <dt><strong><%= model_class.human_attribute_name(:author) %>:</strong></dt>
   <dd><%= link_to @book.author, "http://www.google.com/search?q=#{@book.author}", target: "blank" %></dd>
-  <% if @book.images.present? %>
-    <dd><%= link_to (image_tag @book.images.first.author_img_url, class: "author_image"), "http://www.google.com/search?q=#{@book.author}", target: "blank"  %></dd>
+
+  <dd>
+  <% if test_blank_author_img_url(@book) %>
+    <%= image_tag "blank_avatar.png", class: "blank_avatar" %>
+  <% else %>
+    <%= link_to (image_tag @book.images.first.author_img_url, class: "author_image"), "http://www.google.com/search?q=#{@book.author}", target: "blank"  %>
   <% end %>
+  </dd>
+  
+  
     <dt><strong><%= model_class.human_attribute_name(:rating) %>:</strong></dt>
   <dd>
   <% (@book.rating).times do %>
