@@ -11,7 +11,7 @@ class Book < ActiveRecord::Base
     }
     validates :rating, numericality: {less_than_or_equal_to: 5}
 
-    has_attached_file :image, :styles => { :small_size => "150x150>", :cover_size => "350x350>" }
+    has_attached_file :image, :styles => {:small_size => "150x150>", :cover_size => "350x350>" }
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
   def title

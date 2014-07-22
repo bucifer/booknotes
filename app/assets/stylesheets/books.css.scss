@@ -16,3 +16,21 @@ dd {
 		font-size: 1.5em;
 	}
 }
+
+.table {
+	thead tr {
+		background-color: black;
+		color: white;
+	}
+	tbody {
+
+		tr:nth-child(even) {
+			background-color: #ECECEC;
+		}
+		tr {
+			&:hover {
+				background-color: lightblue;
+			}
+		}
+	}
+}

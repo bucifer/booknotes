@@ -35,7 +35,6 @@
 	margin: 5px;
 	a {
 		&:hover {
-			text-decoration: none;
 			background: none;
 		}
 	}
@@ -45,8 +44,7 @@ a.bookTitle {
 	font-size: 2.5em;
 	font-family: 'Droid Serif', serif;
 	&:hover {
-		text-decoration: none;
-		background-color: black;
+		color: inherit;
 	}
 }
 
