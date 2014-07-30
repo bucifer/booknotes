@@ -14,6 +14,7 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 
 gem 'ckeditor'
+gem 'non-stupid-digest-assets'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
