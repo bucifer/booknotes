@@ -22,7 +22,7 @@
             <li><%= link_to "Images", images_path %></li>
               <% end %>
         </ul>
-                    <%= menu_group :pull => :right do %>
+              <%= menu_group :pull => :right do %>
               <% if current_user %>
                 <li><%= link_to "See Admins", users_path %></li>
                 <li><%= link_to "Logout", :logout, method: :post %></li>
