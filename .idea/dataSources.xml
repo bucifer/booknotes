@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2874016827">
+    <data-source source="LOCAL" name="Rails booknotes: development" uuid="7328f8ea-a259-4dfa-a827-1df1e57228e7">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:booknotes_development</jdbc-url>
+      <user-name>postgres</user-name>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails booknotes: test" uuid="1c19b48f-1ae6-4edb-81b1-10454d628ca2">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:booknotes_test</jdbc-url>
+      <user-name>postgres</user-name>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails booknotes: production" uuid="56356da4-9f52-4b0a-be20-210f0521a8ac">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:booknotes_production</jdbc-url>
+      <user-name>booknotes</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfe8dfe5dfe5dfe1dfe4dfe5dffedfefdff9dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

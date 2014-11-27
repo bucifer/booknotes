@@ -1,0 +1,12 @@
+changing production.rb's config serve_static assets to true from false didn't work. leaving it as is
+
+downloaded ckeditor gem, and followed instructions from https://github.com/tsechingho/ckeditor-railsworks in development.
+
+didn't work
+
+downloaded nonprettydigestassets gem
+didn't work
+
+ripped out all my previous javascript set-up and using ckeditor document set-up
+got it working ckeditor gem way
+
